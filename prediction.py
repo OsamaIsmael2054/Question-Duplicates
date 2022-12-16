@@ -2,18 +2,16 @@ from model import Network
 import torch
 import pickle
 import string
-from TripletLoss import TripletLoss
 
 
-with open("Projects\\Question Dublicates\\utils\\vocab_stoi.pkl","rb") as handle:
+
+with open("./utils/vocab_stoi.pkl","rb") as handle:
     Str2Index = pickle.load(handle)
 
-with open("Projects\\Question Dublicates\\utils\\vocab_itos.pkl","rb") as handle:
-    IndextoStr = pickle.load(handle)
 
 max_len = 400
 vocab_size = len(Str2Index) + 1
-loss_fn = TripletLoss()
+
 
 def remove_punctuation(text):
     """Remove punctuation from list of tokenized words"""
@@ -43,7 +41,7 @@ def text_pipeline(question:str):
     question_tokenized = torch.tensor(question_tokenized, dtype=torch.int64)
     return question_tokenized
 
-def predict(Q1:str, Q2:str, thershold=0.7, PATH_TO_MODEL = './utilsWeights.pth'):
+def predict(Q1:str, Q2:str, thershold=0.7, PATH_TO_MODEL = './utils/Weights.pth'):
     Q1_tokenized = text_pipeline(Q1)
     Q2_tokenized = text_pipeline(Q2)
 
