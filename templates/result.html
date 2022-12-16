@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+	<style>
+		h2 {text-align: center;}
+		h3 {text-align: center;}
+	</style>
+</head>
+<html>
+<body>
+	<form action="/" method="POST">
+
+	<h2> {{ Question1 }}</h2>
+	<h2> {{ Question2 }}</h2>
+	<h3> {{ output }}</h3>
+	
+	<div style="text-align:center">    
+		<a href="{{ url_for('index') }}" style="font-size: 70px;">Return</a>
+	  </div>
+
+</form>
+</body>
+</html>
