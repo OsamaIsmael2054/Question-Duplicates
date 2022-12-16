@@ -1,0 +1,9 @@
+version: "3"
+services:
+  app_services:
+    container_name: question-dublicate-app
+    build: .
+    volumes: 
+    - ./Deploy:/app/Deploy:ro
+    ports: 
+    - "4000:4000"
